@@ -1,18 +1,6 @@
 var Swiper = function (selector, params) {
     'use strict';
 
-    /*=========================
-      A little bit dirty but required part for IE8 and old FF support
-      ===========================*/
-    if (!document.body.outerHTML && document.body.__defineGetter__) {
-        if (HTMLElement) {
-            var element = HTMLElement.prototype;
-            if (element.__defineGetter__) {
-                element.__defineGetter__('outerHTML', function () { return new XMLSerializer().serializeToString(this); });
-            }
-        }
-    }
-
     if (!window.getComputedStyle) {
         window.getComputedStyle = function (el, pseudo) {
             this.el = el;
