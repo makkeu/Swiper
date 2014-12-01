@@ -1363,6 +1363,9 @@ var Swiper = function (selector, params) {
             return false;
         }
 
+        //Get Start Translate Position
+        _this.positions.start = _this.positions.current = _this.getWrapperTranslate();
+
         if (!isTouchEvent || event.targetTouches.length === 1) {
             _this.callPlugins('onTouchStartBegin');
             if (!isTouchEvent && !_this.isAndroid && formTagNames.indexOf(eventTarget.tagName.toLowerCase()) < 0) {
@@ -1382,9 +1385,6 @@ var Swiper = function (selector, params) {
 
             //Set Transition Time to 0
             _this.setWrapperTransition(0);
-
-            //Get Start Translate Position
-            _this.positions.start = _this.positions.current = _this.getWrapperTranslate();
 
             //Set Transform
             _this.setWrapperTranslate(_this.positions.start);
