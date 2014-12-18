@@ -1858,7 +1858,7 @@ var Swiper = function (selector, params) {
     _this.swipeReset = function (runCallbacks) {
         if (typeof runCallbacks === 'undefined') runCallbacks = true;
         _this.callPlugins('onSwipeReset');
-        var currentPosition = _this.getWrapperTranslate();
+        var currentPosition = _this.getWrapperTranslate().toFixed(2);
         var groupSize = slideSize * params.slidesPerGroup;
         var newPosition;
         var maxPosition = -maxWrapperPosition();
@@ -1899,7 +1899,7 @@ var Swiper = function (selector, params) {
         index = parseInt(index, 10);
         _this.callPlugins('onSwipeTo', {index: index, speed: speed});
         if (params.loop) index = index + _this.loopedSlides;
-        var currentPosition = _this.getWrapperTranslate();
+        var currentPosition = _this.getWrapperTranslate().toFixed(2);
         if (index > (_this.slides.length - 1) || index < 0) return;
         var newPosition;
         if (params.slidesPerView === 'auto') {
